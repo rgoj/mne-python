@@ -122,7 +122,7 @@ for (l_freq, h_freq) in freq_bins:
     raw_band = raw_noise.copy()
     raw_band.filter(l_freq, h_freq, picks=epochs.picks, method='iir', n_jobs=1)
     epochs_band = mne.Epochs(raw_band, epochs_noise.events, event_id,
-                             tmin=tmin_plot, tmax=0, picks=epochs.picks,
+                             tmin=tmin_plot, tmax=tmax_plot, picks=epochs.picks,
                              proj=True)
 
     noise_cov = compute_covariance(epochs_band)
